@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vouviajar.API.Autenticacao</name>
+    </assembly>
+    <members>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.ObterPorId(System.Int32)">
+            <summary>
+            Obtém por Id
+            </summary>
+            <param name="id">Chave principal</param>
+            <returns></returns>
+        </member>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.ObterTodos">
+            <summary>
+            Obtém todos com os includes listados
+            </summary>
+            <returns>Queryable da entity</returns>
+        </member>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.Inserir(`0)">
+            <summary>
+            Insere uma entity. Para salvar, utilize o método .Salvar()
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.Alterar(`0)">
+            <summary>
+            Altera uma entity. Para salvar, utilize o método .Salvar()
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.Excluir(`0)">
+            <summary>
+            Exclui uma entity. Para salvar, utilize o método .Salvar()
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.Salvar(`0)">
+            <summary>
+            Método que salva todas as inserções/alterações/exclusões
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
