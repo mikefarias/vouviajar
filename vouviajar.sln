@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vouviajar.API.Autenticacao", "Vouviajar.API.Autenticacao\Vouviajar.API.Autenticacao.csproj", "{4CE0D1F7-D970-4DE3-B8DE-E4B5DB801F37}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{455E9311-3B65-48AE-886A-FC477BE4E30E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{92878AD7-C63D-4624-9DE3-15DC97A4FC7D}"
+	ProjectSection(SolutionItems) = preProject
+		docker\vouviajar_docker.yml = docker\vouviajar_docker.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +22,17 @@ Global
 		{4CE0D1F7-D970-4DE3-B8DE-E4B5DB801F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE0D1F7-D970-4DE3-B8DE-E4B5DB801F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE0D1F7-D970-4DE3-B8DE-E4B5DB801F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FE6307-A086-41D2-A80C-7B75E7F0AE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FE6307-A086-41D2-A80C-7B75E7F0AE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FE6307-A086-41D2-A80C-7B75E7F0AE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FE6307-A086-41D2-A80C-7B75E7F0AE17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CE0D1F7-D970-4DE3-B8DE-E4B5DB801F37} = {455E9311-3B65-48AE-886A-FC477BE4E30E}
+		{C8FE6307-A086-41D2-A80C-7B75E7F0AE17} = {455E9311-3B65-48AE-886A-FC477BE4E30E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC7D3691-8DFB-4587-9B2B-CDE6713D5D4E}

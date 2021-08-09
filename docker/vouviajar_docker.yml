@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+
+    # rabbitmq:
+        # image: rabbitmq:3-management
+        # # container_name: rabbit-nerdstore
+        # environment:
+            # RABBITMQ_USER: "vouviajar"
+            # RABBITMQ_PASS: "vouviajar"
+
+    # sql-server:
+        # image: desenvolvedorio/nerdstore-sql-server:latest
+        # container_name: nerdstore-sql-server
+        # build: 
+            # context: ../sql
+            # dockerfile: ./Dockerfile
+        # environment:
+            # SA_PASSWORD: "MeuDB@123"
+            # ACCEPT_EULA: "Y"     
+
+    api-autenticacao:
+        image: vouviajar/api-autenticacao:latest
+        container_name: vouviajar-api-identidade    
+        build: 
+            context: ../src
+            dockerfile: ./vouviajar.api.autenticacao/dockerfile  
+        restart: always    
+        environment: 
+            - aspnetcore_environment=production
+            - aspnetcore_urls=https://+:5101;http://+5102
+            - aspnetcore_kestrel__certificates__default__password=nerdstore
+            - aspnetcore_kestrel__certificates__default__path=/https/nerdstore-certificate.pfx
+        volumes:
+            - ./certs:/https:ro
+        depends_on:
+            - rabbitmq
+            - sql-server
+            
