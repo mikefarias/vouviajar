@@ -24,16 +24,16 @@ services:
         container_name: vouviajar-api-identidade    
         build: 
             context: ../src
-            dockerfile: ./vouviajar.api.autenticacao/dockerfile  
+            dockerfile: vouviajar.api.autenticacao/Dockerfile  
         restart: always    
         environment: 
             - aspnetcore_environment=production
             - aspnetcore_urls=https://+:5101;http://+5102
-            - aspnetcore_kestrel__certificates__default__password=nerdstore
-            - aspnetcore_kestrel__certificates__default__path=/https/nerdstore-certificate.pfx
-        volumes:
-            - ./certs:/https:ro
-        depends_on:
-            - rabbitmq
-            - sql-server
+#            - aspnetcore_kestrel__certificates__default__password=nerdstore
+#            - aspnetcore_kestrel__certificates__default__path=/https/nerdstore-certificate.pfx
+#        volumes:
+#            - ./certs:/https:ro
+#        depends_on:
+#            - rabbitmq
+#            - sql-server
             
