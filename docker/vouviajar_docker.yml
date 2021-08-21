@@ -40,3 +40,15 @@ services:
 #            - rabbitmq
 #            - sql-server
             
+    vouviajar-server:
+        image: vouviajar/vouviajar-server:latest
+        container_name: vouviajar-server    
+        build: 
+            context: ./
+            dockerfile: ./nginx/Dockerfile 
+        restart: always 
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - api-autenticacao
