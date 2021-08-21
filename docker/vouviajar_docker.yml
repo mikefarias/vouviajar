@@ -28,14 +28,10 @@ services:
         restart: 
             always
         ports: 
-           - "5001:5001"
+           - "5100:5100"
         environment: 
             - aspnetcore_environment=production
-            - aspnetcore_urls=https://+:5101;http://+5102
-            - aspnetcore_kestrel__certificates__default__password=nerdstore
-            - aspnetcore_kestrel__certificates__default__path=/https/nerdstore-certificate.pfx
-        volumes:
-            - ./certs:/https:ro
+            - aspnetcore_urls=http://*:5100
 #        depends_on:
 #            - rabbitmq
 #            - sql-server
