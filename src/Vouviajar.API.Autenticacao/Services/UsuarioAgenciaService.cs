@@ -20,7 +20,7 @@ namespace Vouviajar.API.Autenticacao.Services
 
         private async Task RegistrarUsuario(Usuario usuario) 
         {
-            AgenciaMessage agenciaMessage = new AgenciaMessage();
+            //AgenciaMessage agenciaMessage = new AgenciaMessage();
             var source = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             var endpoint = await _bus.GetSendEndpoint(new Uri(""));
 
