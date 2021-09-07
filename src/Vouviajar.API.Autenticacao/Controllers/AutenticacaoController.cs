@@ -52,6 +52,7 @@ namespace Vouviajar.API.Autenticacao.Controllers
             {
                 if (resultUser.Succeeded)
                 {
+                    // Publicar usuário na fila para cadastro AGENCIA ou CLIENTE
                    await _signInManager.SignInAsync(user, false);
                    return Retorno(await GerarToken(registrarUsuario.Email));
                 }
