@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Vouviajar.API.Autenticacao.Entities;
+using Vouviajar.API.Core;
 
 namespace Vouviajar.API.Autenticacao.Services
 {

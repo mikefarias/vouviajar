@@ -22,7 +22,6 @@ namespace Vouviajar.API.Autenticacao.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
-
         public AutenticacaoController(INotificador notificador,
                                         SignInManager<IdentityUser> signInManager,
                                         UserManager<IdentityUser> userManager,
