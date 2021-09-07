@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vouviajar.API.Cliente", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vouviajar.API.Agencia", "src\Vouviajar.API.Agencia\Vouviajar.API.Agencia.csproj", "{A2EDBAA9-37B6-46E7-B095-4E976F54B056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vouviajar.API.Core", "Vouviajar.API.Core\Vouviajar.API.Core.csproj", "{22A5E12D-0623-4BAF-8782-3C981E1FE7B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vouviajar.API.Core", "src\Vouviajar.API.Core\Vouviajar.API.Core.csproj", "{22A5E12D-0623-4BAF-8782-3C981E1FE7B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

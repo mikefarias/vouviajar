@@ -35,5 +35,9 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Vouviajar.API.Core\Vouviajar.API.Core.csproj" />
+  </ItemGroup>
+
 
 </Project>
