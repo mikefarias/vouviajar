@@ -1,16 +1,17 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using System.Linq;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 using Vouviajar.API.Autenticacao.Entities;
 using Vouviajar.API.Autenticacao.Extensoes;
 using Vouviajar.API.Autenticacao.Services.Interface;
+using Vouviajar.API.Autenticacao.Services.Interfaces;
 using Vouviajar.API.Autenticacao.Services.ViewModel;
 
 namespace Vouviajar.API.Autenticacao.Controllers
@@ -22,15 +23,19 @@ namespace Vouviajar.API.Autenticacao.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
+        private readonly IUsuarioAgenciaService _usuarioAgenciaService;
+
         public AutenticacaoController(INotificador notificador,
                                         SignInManager<IdentityUser> signInManager,
                                         UserManager<IdentityUser> userManager,
-                                        IOptions<AppSettings> appSettings
+                                        IOptions<AppSettings> appSettings, 
+                                        IUsuarioAgenciaService usuarioAgenciaService
                                         ) : base(notificador) 
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _usuarioAgenciaService = usuarioAgenciaService;
         }
 
         [HttpPost("registrar")]
@@ -51,7 +56,8 @@ namespace Vouviajar.API.Autenticacao.Controllers
             {
                 if (resultUser.Succeeded)
                 {
-                    // Publicar usuário na fila para cadastro AGENCIA ou CLIENTE
+                   // Publicar usuário na fila para cadastro AGENCIA ou CLIENTE
+                   await _usuarioAgenciaService.RegistrarAgencia(user);
                    await _signInManager.SignInAsync(user, false);
                    return Retorno(await GerarToken(registrarUsuario.Email));
                 }

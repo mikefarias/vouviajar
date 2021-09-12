@@ -2,13 +2,17 @@
 using FluentValidation.Results;
 using System;
 using System.IO;
+using System.Net;
+using System.Threading.Tasks;
 using Vouviajar.API.Autenticacao.Entities;
+using Vouviajar.API.Autenticacao.Services;
 using Vouviajar.API.Autenticacao.Services.Interface;
+using Vouviajar.API.Autenticacao.Services.Interfaces;
 using Vouviajar.API.Autenticacao.Services.Notificacoes;
 
 namespace Service.Services
 {
-    public abstract class BaseService
+    public abstract class BaseService : IService
     {
         private readonly INotificador _notificador;
 
@@ -83,5 +87,40 @@ namespace Service.Services
             System.IO.File.Delete(filePath);
             return true;
         }
+
+        public async Task<ResponseService<T>> GenerateErroServiceResponse<T>(string msg, HttpStatusCode status = HttpStatusCode.BadRequest)
+    => await Task.FromResult(new ResponseService<T>
+    {
+        Message = msg,
+        Status = status,
+        Success = false,
+        Value = default
+    });
+
+        public async Task<ResponseService> GenerateErroServiceResponse(string msg, HttpStatusCode status = HttpStatusCode.BadRequest)
+            => await Task.FromResult(new ResponseService
+            {
+                Message = msg,
+                Status = status,
+                Success = false,
+            });
+
+        public async Task<ResponseService<T>> GenerateSuccessServiceResponse<T>(T value, HttpStatusCode status = HttpStatusCode.OK)
+            => await Task.FromResult(new ResponseService<T>
+            {
+                Message = string.Empty,
+                Status = status,
+                Success = true,
+                Value = value
+            });
+
+        public async Task<ResponseService> GenerateSuccessServiceResponse(HttpStatusCode status = HttpStatusCode.OK)
+            => await Task.FromResult(new ResponseService
+            {
+                Message = string.Empty,
+                Status = status,
+                Success = true,
+            });
     }
+
 }

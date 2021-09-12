@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Seac.Onboarding.API.Extensions;
 using Vouviajar.API.Autenticacao.Config;
+using Vouviajar.API.Autenticacao.Services;
 using Vouviajar.API.Autenticacao.Services.AutoMapper;
-
+using Vouviajar.API.Autenticacao.Services.Config;
+using Vouviajar.API.Autenticacao.Services.Interfaces;
 
 namespace Vouviajar.API.Autenticacao
 {
@@ -15,7 +18,7 @@ namespace Vouviajar.API.Autenticacao
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;  
         }
 
         public IConfiguration Configuration { get; }
@@ -24,6 +27,7 @@ namespace Vouviajar.API.Autenticacao
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpClient();
 
             services.Configure<ForwardedHeadersOptions>(options =>
             {
@@ -37,9 +41,14 @@ namespace Vouviajar.API.Autenticacao
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+            services.Configure<MessageBrokerConfig>(Configuration.GetSection("MessageBrokerConfig"));
+            
+            services.AddScoped<IUsuarioAgenciaService, UsuarioAgenciaService>();
+
             services.AddIdentityConfiguration(Configuration);
             services.AddAutoMapper(typeof(ConfigurationMapper));
             services.AddDependencyInjectionConfiguration();
+            services.AddCustomMassTransit(Configuration);
             services.AddControllers()
                 .ConfigureApiBehaviorOptions( options =>
                 {
@@ -52,6 +61,7 @@ namespace Vouviajar.API.Autenticacao
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

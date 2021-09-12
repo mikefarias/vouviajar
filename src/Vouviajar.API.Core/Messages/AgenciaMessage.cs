@@ -1,11 +1,16 @@
-﻿using System;
-
-namespace Vouviajar.API.Core
+﻿namespace Vouviajar.API.Core
 {
     public class AgenciaMessage
     {
-        Guid guid { get; set; }
-        string email { get; set; }
+
+        public AgenciaMessage(string id, string email)
+        {
+            this.Id = id;
+            this.Email = email;
+        }
+
+        string Id { get; set; }
+        string Email { get; set; }
 
     }
 }

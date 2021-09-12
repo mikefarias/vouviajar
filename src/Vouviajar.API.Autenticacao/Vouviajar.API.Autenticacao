@@ -4,6 +4,25 @@
         <name>Vouviajar.API.Autenticacao</name>
     </assembly>
     <members>
+        <member name="T:Seac.Onboarding.API.Extensions.MassTransitExtension">
+            <summary>
+            Extensões do MassTransit
+            </summary>
+        </member>
+        <member name="M:Seac.Onboarding.API.Extensions.MassTransitExtension.AddCustomMassTransit(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configuração básica do MassTransit
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Seac.Onboarding.Util.Extensions.EnvironmentExtension.GetEnvironmentVariable(System.String)">
+            <summary>
+            obtem variável de ambiente
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
         <member name="M:Domain.Repositories.Abstract.IBaseRepository`1.ObterPorId(System.Int32)">
             <summary>
             Obtém por Id
