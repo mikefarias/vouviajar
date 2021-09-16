@@ -2,6 +2,9 @@
 {
     public class AgenciaMessage
     {
+        public AgenciaMessage()
+        {
+        }
 
         public AgenciaMessage(string id, string email)
         {
