@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vouviajar.API.Agencia.Extensions;
 
 namespace Vouviajar.API.Agencia
 {
@@ -32,6 +33,7 @@ namespace Vouviajar.API.Agencia
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vouviajar.API.Agencia", Version = "v1" });
             });
+            services.AddCustomMassTransit(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

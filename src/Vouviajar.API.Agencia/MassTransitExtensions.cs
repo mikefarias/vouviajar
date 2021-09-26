@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Seac.Onboarding.Util.Extensions;
 using System;
+using Vouviajar.API.Agencia.Consumers;
+using Vouviajar.API.Core;
 
 namespace Vouviajar.API.Agencia.Extensions
 {
@@ -24,15 +26,23 @@ namespace Vouviajar.API.Agencia.Extensions
             var connectionStringRabbitMQ = configuration.GetConnectionString("RabbitMQ");
             var virtualHostRabbitMQ = configuration.GetSection("MessageBrokerConfig:VirtualHost").Value;
             var portRabbitMQ = Convert.ToUInt16(configuration.GetSection("MessageBrokerConfig:Port").Value);
+            var cadastrarAgenciaEndpoint = configuration.GetSection("MessageBrokerConfig:Endpoints:NovaAgencia").Value;
 
             services.AddMassTransit(bus =>
             {
+                bus.AddConsumer<CadastrarAgenciaConsumer>();
+
                 bus.UsingRabbitMq((ctx, busConfigurator) =>
                 {
                     busConfigurator.Host("amqp://guest:guest@localhost:5672");
+
+                    busConfigurator.ReceiveEndpoint(cadastrarAgenciaEndpoint, e =>
+                    {
+                        e.ConfigureConsumer<CadastrarAgenciaConsumer>(ctx);
+                    });
                 });
 
-                bus.AddConsumer<AgenciaMessage>();
+
             });
             
             services.AddMassTransitHostedService();
