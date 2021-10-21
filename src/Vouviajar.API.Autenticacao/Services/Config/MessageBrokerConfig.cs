@@ -11,8 +11,6 @@
     public class Endpoints
     {
         public string PrefixQueue { get; set; }
-        public string AnaliseCredito { get; set; }
-        public string ContratacaoProduto { get; set; }
-        public string ReceberDadosOnboarding { get; set; }
+        public string NovaAgencia { get; set; }
     }
 }

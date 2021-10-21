@@ -23,11 +23,9 @@ namespace Vouviajar.API.Autenticacao.Services
                                         IBusControl bus, INotificador notificador) : base (notificador)
         {
             _messageBrokerConfig = messageBrokerConfig;
-            _bus = bus;
+             _bus = bus;
             _notificador = notificador;
-            URI_NOVA_AGENCIA = new Uri($"{_messageBrokerConfig.Value.Endpoints.PrefixQueue}{_messageBrokerConfig.Value.Endpoints.ContratacaoProduto}");
-
-
+            URI_NOVA_AGENCIA = new Uri($"{_messageBrokerConfig.Value.Endpoints.PrefixQueue}{_messageBrokerConfig.Value.Endpoints.NovaAgencia}");
         }
 
         public async Task<ResponseService> RegistrarAgencia(Usuario usuario)
