@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\Behaviours\" />
+    <Folder Include="Application\Common\MediatR\" />
+    <Folder Include="Application\Contracts\Infrastructure\" />
+    <Folder Include="Application\Contracts\Services\" />
+    <Folder Include="Application\Controllers\" />
+    <Folder Include="Application\EventBus\Consumers\" />
+    <Folder Include="Application\EventBus\Events\" />
+    <Folder Include="Application\Extensions\" />
+    <Folder Include="Application\Features\Commands\" />
+    <Folder Include="Application\Features\Queries\" />
+    <Folder Include="Application\Filters\" />
+    <Folder Include="Domain\Common\" />
+    <Folder Include="Domain\EntitiesExternal\" />
+    <Folder Include="Domain\Entities\Aggregates\" />
+    <Folder Include="Domain\Enums\" />
+    <Folder Include="Domain\Exceptions\" />
+    <Folder Include="Domain\Helpers\" />
+    <Folder Include="Domain\Services\" />
+    <Folder Include="Infrastructure\Jobs\" />
+    <Folder Include="Infrastructure\Repositories\" />
+    <Folder Include="Infrastructure\Persistence\" />
+  </ItemGroup>
+
+</Project>
