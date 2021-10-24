@@ -13,31 +13,31 @@ namespace VouViajar.Modulos.Catalogo.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarItemCatalogo()
+        public ActionResult CadastrarItemCatalago()
         {
             throw new NotImplementedException();
         }
 
         [HttpPut]
-        public ActionResult AtualizarItemCatalogo()
+        public ActionResult AtualizarItemCatalago()
         {
             throw new NotImplementedException();
         }
 
         [HttpDelete]
-        public ActionResult ExcluirItemCatalogo()
+        public ActionResult ExcluirItemCatalago()
         {
             throw new NotImplementedException();
         }
 
         [HttpGet("{id}")]
-        public ActionResult ObterItemCatalogo()
+        public ActionResult ObterItemCatalago()
         {
             throw new NotImplementedException();
         }
 
         [HttpGet]
-        public ActionResult ObterTodosItensCatalogo()
+        public ActionResult ObterTodosItensCatalago()
         {
             throw new NotImplementedException();
         }

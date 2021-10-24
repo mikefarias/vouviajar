@@ -11,8 +11,6 @@
     <Folder Include="Application\EventBus\Consumers\" />
     <Folder Include="Application\EventBus\Events\" />
     <Folder Include="Application\Extensions\" />
-    <Folder Include="Application\Features\Commands\" />
-    <Folder Include="Application\Features\Queries\" />
     <Folder Include="Application\Filters\" />
     <Folder Include="Domain\Common\" />
     <Folder Include="Domain\EntitiesExternal\" />
