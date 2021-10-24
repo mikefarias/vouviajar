@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VouViajar.Modulos.Catalogo\VouViajar.Modulos.Catalogo.csproj" />
+  </ItemGroup>
+
 </Project>
