@@ -2,7 +2,6 @@
 {
     public interface IUnitOfWorkCatalogo
     {
-        //ITbDadosContratantePropostaRepository TbDadosContratantePropostaRepository { get; }
         void BeginTransaction();
         void CommitTransaction();
         void Save();

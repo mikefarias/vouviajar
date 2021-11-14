@@ -7,9 +7,6 @@ namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
     {
         private readonly CatalogoDbContext _catalogoDbContext;
 
-        //private readonly ITbDadosContratantePropostaRepository _dadosContratantePropostaRepository;
-        //public ITbDadosContratantePropostaRepository TbDadosContratantePropostaRepository { get { return _dadosContratantePropostaRepository; } }
-
         public UnitOfWorkCatalogo() { }
 
         public UnitOfWorkCatalogo(
@@ -27,13 +24,8 @@ namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    _catalogoDbContext.Instance.Dispose();
-                }
-            }
+            if (!this.disposed && disposing)
+                _catalogoDbContext.Instance.Dispose();
             this.disposed = true;
         }
 
