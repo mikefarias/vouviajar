@@ -19,11 +19,17 @@ namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
 
         public Localidade Destino { get; set; }
 
-        public DetalheEvento IdDetalheEvento { get; set; }
+        public int TotalVagas { get; set; }
 
+        public decimal ValorVaga { get; set; }
+
+        public string NomeArquivo { get; set; }
+        public string Arquivo { get; set; }
         public SituacaoEvento Situacao { get; set; }
 
         public TipoEvento Tipo { get; set; }
+
+        public DateTime CadastradoEm { get; set; }
 
     }
 }

@@ -13,7 +13,6 @@
     <Folder Include="Application\Filters\" />
     <Folder Include="Domain\Common\" />
     <Folder Include="Domain\EntitiesExternal\" />
-    <Folder Include="Domain\Enums\" />
     <Folder Include="Domain\Exceptions\" />
     <Folder Include="Domain\Helpers\" />
     <Folder Include="Domain\Services\" />

@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Application.Models;
+using VouViajar.Modulos.Eventos.Domain.Enums;
 
 namespace VouViajar.Modulos.Eventos.Application.Controllers
 {
@@ -42,9 +43,22 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.Created)]
         public async Task<IActionResult> CadastrarEvento([FromBody] CadastrarEventoModel cadastrarEventoModel)
         {
-            var cadastrarEventoCommand = new CadastrarEventoCommand
-            (
-            );
+            var cadastrarEventoCommand = new CadastrarEventoCommand()
+            {
+                Nome        = cadastrarEventoModel.Nome,
+                Resumo      = cadastrarEventoModel.Resumo, 
+                DataInicio  = cadastrarEventoModel.DataInicio, 
+                DataFim     = cadastrarEventoModel.DataFim, 
+                Origem      = cadastrarEventoModel.Origem, 
+                Destino     = cadastrarEventoModel.Destino, 
+                NomeArquivo = cadastrarEventoModel.NomeArquivo, 
+                Arquivo     = cadastrarEventoModel.Arquivo, 
+                TotalVagas  = cadastrarEventoModel.TotalVagas, 
+                ValorVaga   = cadastrarEventoModel.ValorVaga, 
+                Tipo        = cadastrarEventoModel.Tipo, 
+                Situacao    = EnumSituacaoEvento.CADASTRADO
+
+            };
 
             await _mediator.Send(cadastrarEventoCommand);
             return Created(Request.GetDisplayUrl(), cadastrarEventoModel);
