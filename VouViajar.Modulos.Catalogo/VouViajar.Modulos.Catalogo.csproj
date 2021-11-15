@@ -18,7 +18,6 @@
     <Folder Include="Domain\Helpers\" />
     <Folder Include="Domain\Services\" />
     <Folder Include="Infrastructure\Jobs\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>

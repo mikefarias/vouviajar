@@ -2,16 +2,16 @@
 
 namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
 {
-    public partial class CatalogoDbContext : DbContext
+    public partial class EventoDbContext : DbContext
     {
-        public CatalogoDbContext Instance => this;
+        public EventoDbContext Instance => this;
 
         //public DbSet<TbDadosContratanteProposta> TbDadosContratanteProposta { get; set; }
-        public CatalogoDbContext()
+        public EventoDbContext()
         {
         }
 
-        public CatalogoDbContext(DbContextOptions<CatalogoDbContext> options) : base(options)
+        public EventoDbContext(DbContextOptions<EventoDbContext> options) : base(options)
         {
 
         }

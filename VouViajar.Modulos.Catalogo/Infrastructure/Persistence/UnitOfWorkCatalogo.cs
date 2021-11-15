@@ -5,12 +5,12 @@ namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
 {
     public class UnitOfWorkCatalogo : IUnitOfWorkCatalogo, IDisposable
     {
-        private readonly CatalogoDbContext _catalogoDbContext;
+        private readonly EventoDbContext _catalogoDbContext;
 
         public UnitOfWorkCatalogo() { }
 
         public UnitOfWorkCatalogo(
-                CatalogoDbContext catalogoDbContext)
+                EventoDbContext catalogoDbContext)
         {
             _catalogoDbContext = catalogoDbContext;
         }
