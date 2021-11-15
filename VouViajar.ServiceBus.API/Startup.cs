@@ -25,7 +25,7 @@ namespace VouViajar.ServiceBus.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCatalogoModuleRegistrationService(Configuration);
-            services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(CatalogoController)));
+            services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(EventoController)));
             services.AddHttpClient();
 
 
