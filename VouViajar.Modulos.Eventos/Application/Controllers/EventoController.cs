@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Application.Models;
 
-namespace VouViajar.Modulos.Catalogo.Application.Controllers
+namespace VouViajar.Modulos.Eventos.Application.Controllers
 {
 
     [Route("api/evento")]

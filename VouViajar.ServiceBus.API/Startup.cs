@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
-using VouViajar.Modulos.Catalogo.Application.Controllers;
-using VouViajar.Modulos.Evento;
+using VouViajar.Modulos.Eventos;
+using VouViajar.Modulos.Eventos.Application.Controllers;
 
 namespace VouViajar.ServiceBus.API
 {

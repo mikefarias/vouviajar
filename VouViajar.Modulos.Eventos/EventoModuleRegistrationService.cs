@@ -3,9 +3,9 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using VouViajar.Modulos.Catalogo.Application.Behaviours;
+using VouViajar.Modulos.Eventos.Application.Behaviours;
 
-namespace VouViajar.Modulos.Evento
+namespace VouViajar.Modulos.Eventos
 {
     public static class EventoModuleRegistrationService
     {
