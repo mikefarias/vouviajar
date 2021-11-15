@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
-using VouViajar.Modulos.Catalogo;
 using VouViajar.Modulos.Catalogo.Application.Controllers;
+using VouViajar.Modulos.Evento;
 
 namespace VouViajar.ServiceBus.API
 {
@@ -24,7 +24,7 @@ namespace VouViajar.ServiceBus.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCatalogoModuleRegistrationService(Configuration);
+            services.AddEventoModuleRegistrationService(Configuration);
             services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(EventoController)));
             services.AddHttpClient();
 

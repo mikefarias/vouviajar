@@ -1,7 +1,6 @@
-﻿using VouViajar.Modulos.Catalogo.Application.Contracts.Infrastructure;
-using VouViajar.Modulos.Catalogo.Domain.Entities.Aggregates;
+﻿using VouViajar.Modulos.Evento.Application.Contracts.Infrastructure;
 
-namespace VouViajar.Modulos.Catalogo.Infrastructure.Repositories
+namespace VouViajar.Modulos.Evento.Infrastructure.Repositories
 {
     public class EventoRepository: BaseRepository<Evento>, IEventoRepository
     { 

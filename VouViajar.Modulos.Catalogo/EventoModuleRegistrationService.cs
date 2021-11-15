@@ -1,17 +1,16 @@
-﻿
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using VouViajar.Modulos.Catalogo.Application.Behaviours;
 
-namespace VouViajar.Modulos.Catalogo
+namespace VouViajar.Modulos.Evento
 {
-    public static class CatalogoModuleRegistrationService
+    public static class EventoModuleRegistrationService
     {
 
-        public static IServiceCollection AddCatalogoModuleRegistrationService(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddEventoModuleRegistrationService(this IServiceCollection services, IConfiguration configuration)
         {
             #region MediatR
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

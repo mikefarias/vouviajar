@@ -1,4 +1,4 @@
-﻿namespace VouViajar.Modulos.Catalogo.Domain.Entities
+﻿namespace VouViajar.Modulos.Evento.Domain.Entities
 {
     public class Localidade
     {

@@ -8,6 +8,7 @@
     <Folder Include="Application\Common\MediatR\" />
     <Folder Include="Application\Contracts\Infrastructure\" />
     <Folder Include="Application\Contracts\Services\" />
+    <Folder Include="Application\Controllers\" />
     <Folder Include="Application\EventBus\Consumers\" />
     <Folder Include="Application\EventBus\Events\" />
     <Folder Include="Application\Extensions\" />
@@ -24,6 +25,11 @@
     <Folder Include="Infrastructure\Jobs\" />
     <Folder Include="Infrastructure\Persistence\" />
     <Folder Include="Infrastructure\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.4" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
 </Project>

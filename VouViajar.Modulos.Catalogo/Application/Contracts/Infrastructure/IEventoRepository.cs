@@ -1,4 +1,4 @@
-﻿namespace VouViajar.Modulos.Catalogo.Application.Contracts.Infrastructure
+﻿namespace VouViajar.Modulos.Evento.Application.Contracts.Infrastructure
 {
     public interface IEventoRepository
     {

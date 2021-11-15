@@ -1,4 +1,4 @@
-﻿namespace VouViajar.Modulos.Catalogo.Domain.Entities.Aggregates
+﻿namespace VouViajar.Modulos.Evento.Domain.Entities.Aggregates
 {
     public class DetalheEvento
     {

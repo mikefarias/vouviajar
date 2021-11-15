@@ -1,7 +1,7 @@
 ﻿using System;
-using VouViajar.Modulos.Catalogo.Application.Contracts.Infrastructure;
+using VouViajar.Modulos.Evento.Application.Contracts.Infrastructure;
 
-namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
+namespace VouViajar.Modulos.Evento.Infrastructure.Persistence
 {
     public class UnitOfWorkCatalogo : IUnitOfWorkCatalogo, IDisposable
     {

@@ -29,21 +29,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vouviajar.API.Core", "src\V
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modulos", "Modulos", "{F43A253B-F6E5-49A2-81B1-0ABFAA4F405E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogo", "Catalogo", "{B2485143-AD44-41FE-A89A-ADFB0F1349B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Evento", "Evento", "{B2485143-AD44-41FE-A89A-ADFB0F1349B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usuario", "Usuario", "{C306809B-4158-4E9F-8B8B-9EC81113300C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgenciaViagem", "AgenciaViagem", "{10979C5E-FFD8-469D-890C-4407C7A42F32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VouViajar.ServiceBus.API", "VouViajar.ServiceBus.API\VouViajar.ServiceBus.API.csproj", "{2F5C8608-FDEA-4616-A1B1-CC6FB13CA776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VouViajar.ServiceBus.API", "VouViajar.ServiceBus.API\VouViajar.ServiceBus.API.csproj", "{2F5C8608-FDEA-4616-A1B1-CC6FB13CA776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VouViajar.Modulos.Usuario", "VouViajar.Modulos.Usuario\VouViajar.Modulos.Usuario.csproj", "{4D8A4816-68DE-42C0-BA82-8E463B2C7D10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VouViajar.Modulos.Usuario", "VouViajar.Modulos.Usuario\VouViajar.Modulos.Usuario.csproj", "{4D8A4816-68DE-42C0-BA82-8E463B2C7D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VouViajar.Modulos.Usuario.Tests", "VouViajar.Modulos.Usuario.Tests\VouViajar.Modulos.Usuario.Tests.csproj", "{C087FCE6-CC89-429D-B770-F269D7C86EB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VouViajar.Modulos.Usuario.Tests", "VouViajar.Modulos.Usuario.Tests\VouViajar.Modulos.Usuario.Tests.csproj", "{C087FCE6-CC89-429D-B770-F269D7C86EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VouViajar.Modulos.Catalogo.Tests", "VouViajar.Modulos.Catalogo.Tests\VouViajar.Modulos.Catalogo.Tests.csproj", "{F696B06C-716B-4733-B72C-0391A9EA4DC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VouViajar.Modulos.Evento.Tests", "VouViajar.Modulos.Catalogo.Tests\VouViajar.Modulos.Evento.Tests.csproj", "{F696B06C-716B-4733-B72C-0391A9EA4DC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VouViajar.Modulos.Catalogo", "VouViajar.Modulos.Catalogo\VouViajar.Modulos.Catalogo.csproj", "{FC4D58BF-CF46-4570-AA2E-6AB1A129C155}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VouViajar.Modulos.Evento", "VouViajar.Modulos.Catalogo\VouViajar.Modulos.Evento.csproj", "{FC4D58BF-CF46-4570-AA2E-6AB1A129C155}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

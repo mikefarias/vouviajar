@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using VouViajar.Modulos.Catalogo.Application.Contracts.Infrastructure;
-using VouViajar.Modulos.Catalogo.Infrastructure.Persistence;
+using VouViajar.Modulos.Evento.Infrastructure.Persistence;
 
-namespace VouViajar.Modulos.Catalogo.Infrastructure.Repositories
+namespace VouViajar.Modulos.Evento.Infrastructure.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {

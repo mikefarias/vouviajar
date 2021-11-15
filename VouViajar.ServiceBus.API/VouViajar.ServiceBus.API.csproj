@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VouViajar.Modulos.Catalogo\VouViajar.Modulos.Catalogo.csproj" />
+    <ProjectReference Include="..\VouViajar.Modulos.Catalogo\VouViajar.Modulos.Evento.csproj" />
   </ItemGroup>
 
 </Project>

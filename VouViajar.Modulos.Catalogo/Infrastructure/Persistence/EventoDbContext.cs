@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace VouViajar.Modulos.Catalogo.Infrastructure.Persistence
+namespace VouViajar.Modulos.Evento.Infrastructure.Persistence
 {
     public partial class EventoDbContext : DbContext
     {
