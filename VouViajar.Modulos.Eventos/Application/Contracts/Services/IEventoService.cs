@@ -1,7 +1,9 @@
-﻿namespace VouViajar.Modulos.Eventos.Application.Contracts.Services
+﻿using VouViajar.Modulos.Eventos.Domain.Entities.Aggregates;
+
+namespace VouViajar.Modulos.Eventos.Application.Contracts.Services
 {
     public interface IEventoService
     {
-        void CadastrarEvento(Domain.Entities.Aggregates.Evento evento);
+        void CadastrarEvento(Evento evento);
     }
 }

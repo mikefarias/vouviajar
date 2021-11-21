@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VouViajar.Modulos.Eventos.Domain.Entities.Aggregates;
 
 namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 {
@@ -6,7 +7,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
     {
         public EventoDbContext Instance => this;
 
-        public DbSet<Domain.Entities.Aggregates.Evento> Evento { get; set; }
+        public DbSet<Evento> Evento { get; set; }
         public EventoDbContext()
         {
         }

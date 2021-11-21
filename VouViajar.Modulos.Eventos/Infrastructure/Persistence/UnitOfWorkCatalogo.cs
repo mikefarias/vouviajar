@@ -1,8 +1,7 @@
 ﻿using System;
 using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
-using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
 
-namespace VouViajar.Modulos.Evento.Infrastructure.Persistence
+namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 {
     public class UnitOfWorkEvento : IUnitOfWorkEvento, IDisposable
     {
