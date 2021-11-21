@@ -6,7 +6,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
     {
         public EventoDbContext Instance => this;
 
-        //public DbSet<TbDadosContratanteProposta> TbDadosContratanteProposta { get; set; }
+        public DbSet<Domain.Entities.Aggregates.Evento> Evento { get; set; }
         public EventoDbContext()
         {
         }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using VouViajar.Modulos.Eventos.Domain.Enums;
 
 namespace VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento
 {
-    public class CadastrarEventoCommand
+    public class CadastrarEventoCommand : IRequest
     {
         public string Nome { get; set; }
 

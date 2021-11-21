@@ -7,6 +7,8 @@ namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
 
         public int IdEvento {get; set;}
 
+        public int IdAgencia { get; set; }
+
         public string Nome { get; set; }
 
         public string Resumo { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace VouViajar.Modulos.Catalogo.Application.Features.Commands.CadastrarEvento
+﻿namespace VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento
 {
     public class CadastrarEventoValidator
     {
