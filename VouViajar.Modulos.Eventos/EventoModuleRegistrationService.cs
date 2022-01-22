@@ -1,9 +1,14 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Reflection;
 using VouViajar.Modulos.Eventos.Application.Behaviours;
+using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
+using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
+using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
 
 namespace VouViajar.Modulos.Eventos
 {
@@ -13,17 +18,19 @@ namespace VouViajar.Modulos.Eventos
         public static IServiceCollection AddEventoModuleRegistrationService(this IServiceCollection services, IConfiguration configuration)
         {
             #region MediatR
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            var assembly = AppDomain.CurrentDomain.Load("VouViajar.Modulos.Eventos");
+            services.AddValidatorsFromAssembly(assembly);
+            services.AddMediatR(assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             #endregion
 
             #region Injections
-            //services.AddDbContext<OnboardingDbContext>(options => options.UseSqlServer(configuration["OnboardingModule:ConnectionStrings:SQLDataBaseOnboarding"]));
+            services.AddDbContext<EventoDbContext>(options => options.UseSqlServer(@"Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=adotapet3;Integrated Security=SSPI;"));
 
-            //services.AddScoped<NotImplExceptionFilterAttribute>();
+            services.AddScoped<IUnitOfWorkEvento, UnitOfWorkEvento>();
 
-            //services.AddScoped<IUnitOfWorkOnboarding, UnitOfWorkOnboarding>();
+
             #endregion
 
             //#region RabbitMQ

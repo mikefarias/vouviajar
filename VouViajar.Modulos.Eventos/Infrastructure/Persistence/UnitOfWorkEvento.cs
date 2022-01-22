@@ -5,19 +5,16 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 {
     public class UnitOfWorkEvento : IUnitOfWorkEvento, IDisposable
     {
-        private readonly EventoDbContext _catalogoDbContext;
+        private readonly EventoDbContext _eventoDbContext;
 
-        public UnitOfWorkEvento() { }
-
-        public UnitOfWorkEvento(
-                EventoDbContext catalogoDbContext)
+        public UnitOfWorkEvento(EventoDbContext eventoDbContext)
         {
-            _catalogoDbContext = catalogoDbContext;
+            _eventoDbContext = eventoDbContext;
         }
 
         public void Save()
         {
-            _catalogoDbContext.Instance.SaveChanges();
+            _eventoDbContext.Instance.SaveChanges();
         }
 
         private bool disposed = false;
@@ -25,7 +22,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed && disposing)
-                _catalogoDbContext.Instance.Dispose();
+                _eventoDbContext.Instance.Dispose();
             this.disposed = true;
         }
 
@@ -37,13 +34,12 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 
         public void BeginTransaction()
         {
-            _catalogoDbContext.Database.BeginTransaction();
+            _eventoDbContext.Database.BeginTransaction();
         }
 
         public void CommitTransaction()
         {
-            _catalogoDbContext.Database.CommitTransaction();
+            _eventoDbContext.Database.CommitTransaction();
         }
     }
-
 }

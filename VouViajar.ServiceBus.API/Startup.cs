@@ -1,12 +1,14 @@
+using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Reflection;
+using System;
 using VouViajar.Modulos.Eventos;
-using VouViajar.Modulos.Eventos.Application.Controllers;
+using VouViajar.Modulos.Eventos.Application.Behaviours;
 
 namespace VouViajar.ServiceBus.API
 {
@@ -25,10 +27,18 @@ namespace VouViajar.ServiceBus.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEventoModuleRegistrationService(Configuration);
-            services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(EventoController)));
+
+            #region MediatR
+            var assembly = AppDomain.CurrentDomain.Load("VouViajar.Modulos.Eventos");
+            services.AddValidatorsFromAssembly(assembly);
+            services.AddMediatR(assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            #endregion
+
+            //services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(EventoController)));
+
+            services.AddControllers().AddApplicationPart(assembly);
             services.AddHttpClient();
-
-
 
             #region Swagger
             services.AddControllers()
