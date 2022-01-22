@@ -1,8 +1,8 @@
 ﻿namespace VouViajar.Modulos.Eventos.Domain.Entities
 {
-    public class SituacaoEvento
+    public class Situacao
     {
-        public int IdSituacaoEvento { get; set; }
+        public int IdSituacao { get; set; }
 
         public string Descricao { get; set; }
 

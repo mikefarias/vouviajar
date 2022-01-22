@@ -26,7 +26,7 @@ namespace VouViajar.Modulos.Eventos
             #endregion
 
             #region Injections
-            services.AddDbContext<EventoDbContext>(options => options.UseSqlServer(@"Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=adotapet3;Integrated Security=SSPI;"));
+            services.AddDbContext<EventoDbContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=vouviajar;Integrated Security=True"));
 
             services.AddScoped<IUnitOfWorkEvento, UnitOfWorkEvento>();
 

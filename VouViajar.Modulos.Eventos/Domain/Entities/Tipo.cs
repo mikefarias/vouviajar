@@ -1,9 +1,9 @@
 ﻿namespace VouViajar.Modulos.Eventos.Domain.Entities
 {
-    public class TipoEvento
+    public class Tipo
     {
 
-        public int IdTipoEvento { get; set; }
+        public int IdTipo { get; set; }
 
         public string Descricao { get; set; }
 

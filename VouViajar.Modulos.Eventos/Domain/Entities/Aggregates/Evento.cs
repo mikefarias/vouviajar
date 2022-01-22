@@ -27,9 +27,9 @@ namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
 
         public string NomeArquivo { get; set; }
         public string Arquivo { get; set; }
-        public SituacaoEvento Situacao { get; set; }
+        public Situacao Situacao { get; set; }
 
-        public TipoEvento Tipo { get; set; }
+        public Tipo Tipo { get; set; }
 
         public DateTime CadastradoEm { get; set; }
 

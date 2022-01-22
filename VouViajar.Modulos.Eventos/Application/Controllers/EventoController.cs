@@ -19,9 +19,8 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         private readonly IMediator _mediator;
         public EventoController(IMediator mediator)
         {
-            _mediator = mediator;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
-
 
         /// <summary>
         /// Realiza a contratação de um produto disponível.
