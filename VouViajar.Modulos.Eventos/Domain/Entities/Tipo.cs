@@ -3,7 +3,7 @@
     public class Tipo
     {
 
-        public int IdTipo { get; set; }
+        public int TipoID { get; set; }
 
         public string Descricao { get; set; }
 
