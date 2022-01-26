@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using VouViajar.Modulos.Eventos;
 using VouViajar.Modulos.Eventos.Application.Behaviours;
+using VouViajar.ServiceBusAPI.Extensions;
 
 namespace VouViajar.ServiceBus.API
 {
@@ -35,13 +36,13 @@ namespace VouViajar.ServiceBus.API
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             #endregion
 
-            //services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(EventoController)));
-
-            services.AddControllers().AddApplicationPart(assembly);
+            services.AddControllers()
+                .AddApplicationPart(assembly);
             services.AddHttpClient();
 
             #region Swagger
             services.AddControllers()
+                .AddCustomJsonOptions()
                 .ConfigureApiBehaviorOptions(options =>
                 {
                     options.SuppressModelStateInvalidFilter = true;
@@ -59,6 +60,7 @@ namespace VouViajar.ServiceBus.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+         
             app.UseForwardedHeaders();
 
             if (env.IsDevelopment())
