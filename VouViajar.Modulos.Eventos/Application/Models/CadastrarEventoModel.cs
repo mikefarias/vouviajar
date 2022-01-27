@@ -13,9 +13,9 @@ namespace VouViajar.Modulos.Eventos.Application.Models
 
         public DateTime DataFim { get; set; }
 
-        public string Origem { get; set; }
+        public int Origem { get; set; }
 
-        public string Destino { get; set; }
+        public int Destino { get; set; }
 
         public string NomeArquivo { get; set; }
         public string Arquivo { get; set; }

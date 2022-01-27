@@ -1,9 +1,30 @@
 ﻿using System;
+using VouViajar.Modulos.Eventos.Domain.Enums;
 
 namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
 {
     public class Evento
     {
+        public Evento()
+        {
+
+        }
+        public Evento(int agenciaID, string nome, string resumo, DateTime dataInicio, DateTime dataFim, int totalVagas, decimal valorVaga, string nomeArquivo, string arquivo, DateTime cadastradoEm, int origemID, int destinoID, int situacaoID, int tipoID)
+        {
+            Nome = nome;
+            Resumo = resumo;
+            DataInicio = dataInicio;
+            DataFim = dataFim;
+            TotalVagas = totalVagas;
+            ValorVaga = valorVaga;
+            NomeArquivo = nomeArquivo;
+            Arquivo = arquivo;
+            CadastradoEm = DateTime.Now;
+            OrigemID = origemID;
+            DestinoID = destinoID;
+            SituacaoID = EnumSituacaoEvento.CADASTRADO.GetHashCode();
+            TipoID = tipoID;
+        }
 
         public int EventoID {get; set;}
         public int AgenciaID { get; set; }

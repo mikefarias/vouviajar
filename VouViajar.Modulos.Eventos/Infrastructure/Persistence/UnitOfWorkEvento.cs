@@ -7,6 +7,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
     {
         private readonly EventoDbContext _eventoDbContext;
 
+        public EventoDbContext Context { get { return _eventoDbContext; } }
         public UnitOfWorkEvento(EventoDbContext eventoDbContext)
         {
             _eventoDbContext = eventoDbContext;

@@ -24,16 +24,16 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
             base.OnModelCreating(builder);
 
             builder.Entity<Evento>()
-                .HasKey(ev => new {ev.IdEvento});
+                .HasKey(ev => new {ev.EventoID});
 
             builder.Entity<Localidade>()
-                .HasKey(ev => new { ev.IdLocalidade});
+                .HasKey(ev => new { ev.LocalidadeID});
 
             builder.Entity<Situacao>()
-                .HasKey(ev => new { ev.IdSituacao });
+                .HasKey(ev => new { ev.SituacaoID });
 
             builder.Entity<Tipo>()
-                .HasKey(ev => new { ev.IdTipo });
+                .HasKey(ev => new { ev.TipoID });
 
         }
 
