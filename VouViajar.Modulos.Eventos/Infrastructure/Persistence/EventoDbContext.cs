@@ -23,6 +23,8 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
         {
             base.OnModelCreating(builder);
 
+            builder.HasDefaultSchema("Eventos");
+
             builder.Entity<Evento>()
                 .HasKey(ev => new {ev.EventoID});
 
