@@ -5,22 +5,22 @@ namespace VouViajar.Modulos.Eventos.Domain.Enums
     public enum EnumSituacaoEvento
     {
         [Description("Cadastrado")]
-        CADASTRADO = 0,
+        CADASTRADO = 1,
         [Description("Andamento")]
-        ANDAMENTO = 1,
+        ANDAMENTO = 2,
         [Description("Finalizado")]
-        FINALIZADO = 2,
+        FINALIZADO = 3,
         [Description("Cancelamento")]
-        CANCELAMENTO = 3,
+        CANCELAMENTO = 4,
         [Description("Excluido")]
-        EXCLUIDO = 4
+        EXCLUIDO = 5
     }
 
     public enum EnumTipoEvento
     {
         [Description("Bate e Volta")]
-        BATE_VOLTA = 0,
+        BATE_VOLTA = 1,
         [Description("Excursão")]
-        EXCURSAO = 1
+        EXCURSAO = 2
     }
 }
