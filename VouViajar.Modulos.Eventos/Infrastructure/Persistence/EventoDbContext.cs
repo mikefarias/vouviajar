@@ -26,6 +26,12 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
             builder.Entity<Evento>()
                 .HasKey(ev => new {ev.EventoID});
 
+            builder.Entity<Evento>().HasOne(ev => ev.Origem).WithOne().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Evento>().HasOne(ev => ev.Destino).WithOne().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Evento>().HasOne(ev => ev.Tipo).WithOne().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Evento>().HasOne(ev => ev.Situacao).WithOne().OnDelete(DeleteBehavior.NoAction);
+
+
             builder.Entity<Localidade>()
                 .HasKey(ev => new { ev.LocalidadeID});
 
