@@ -30,7 +30,6 @@ namespace VouViajar.Modulos.Eventos
 
             services.AddScoped<IUnitOfWorkEvento, UnitOfWorkEvento>();
 
-
             #endregion
 
             //#region RabbitMQ

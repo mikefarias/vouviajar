@@ -63,26 +63,42 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
             return Created(Request.GetDisplayUrl(), cadastrarEventoModel);
         }
 
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpPut]
-        public ActionResult AtualizarEventoCatalogo()
+        public ActionResult AtualizarEvento()
         {
             throw new NotImplementedException();
         }
 
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpDelete]
-        public ActionResult ExcluirEventoCatalogo()
+        public ActionResult ExcluirEvento()
         {
             throw new NotImplementedException();
         }
 
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpGet("{id}")]
-        public ActionResult ObterEventoCatalogo()
+        public ActionResult ObterEvento()
         {
             throw new NotImplementedException();
         }
 
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpGet]
-        public ActionResult ObterTodosEventosCatalogo()
+        public ActionResult ObterEventos()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using VouViajar.Modulos.Eventos;
 using VouViajar.Modulos.Eventos.Application.Behaviours;
+using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.ServiceBusAPI.Extensions;
 
 namespace VouViajar.ServiceBus.API
@@ -38,10 +40,12 @@ namespace VouViajar.ServiceBus.API
 
             services.AddControllers()
                 .AddApplicationPart(assembly);
+
             services.AddHttpClient();
 
             #region Swagger
             services.AddControllers()
+                .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<CadastrarEventoValidator>())
                 .AddCustomJsonOptions()
                 .ConfigureApiBehaviorOptions(options =>
                 {
