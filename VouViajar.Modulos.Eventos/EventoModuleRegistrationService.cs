@@ -9,6 +9,7 @@ using VouViajar.Modulos.Eventos.Application.Behaviours;
 using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
+using VouViajar.Modulos.Eventos.Infrastructure.Repositories;
 
 namespace VouViajar.Modulos.Eventos
 {
@@ -29,6 +30,7 @@ namespace VouViajar.Modulos.Eventos
             services.AddDbContext<EventoDbContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=vouviajar;Integrated Security=True"));
 
             services.AddScoped<IUnitOfWorkEvento, UnitOfWorkEvento>();
+            services.AddScoped<IEventoRepository, EventoRepository>();
 
             #endregion
 

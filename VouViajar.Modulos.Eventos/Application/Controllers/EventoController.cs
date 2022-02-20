@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using VouViajar.Modulos.Eventos.Application.Features.Commands.AtualizarEvento;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Application.Models;
 using VouViajar.Modulos.Eventos.Domain.Enums;
@@ -67,10 +68,31 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Created)]
-        [HttpPut]
-        public ActionResult AtualizarEvento()
+        [HttpPut("{id}")]
+        public async Task<ActionResult> AtualizarEvento([FromBody] AtualizarEventoModel atualizarEventoModel, int id)
         {
-            throw new NotImplementedException();
+            if (id < 1) return BadRequest();
+
+            var atualizarEventoCommand = new AtualizarEventoCommand()
+            {
+                ID = id,
+                Nome = atualizarEventoModel.Nome,
+                Resumo = atualizarEventoModel.Resumo,
+                DataInicio = atualizarEventoModel.DataInicio,
+                DataFim = atualizarEventoModel.DataFim,
+                Origem = atualizarEventoModel.Origem,
+                Destino = atualizarEventoModel.Destino,
+                NomeArquivo = atualizarEventoModel.NomeArquivo,
+                Arquivo = atualizarEventoModel.Arquivo,
+                TotalVagas = atualizarEventoModel.TotalVagas,
+                ValorVaga = atualizarEventoModel.ValorVaga,
+                Tipo = atualizarEventoModel.Tipo,
+                Situacao = atualizarEventoModel.Situacao
+            };
+
+            await _mediator.Send(atualizarEventoCommand);
+
+            return Ok(atualizarEventoModel);
         }
 
         [ProducesResponseType((int)HttpStatusCode.OK)]

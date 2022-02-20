@@ -1,5 +1,6 @@
 ﻿using System;
 using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
+using VouViajar.Modulos.Eventos.Infrastructure.Repositories;
 
 namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 {
@@ -8,9 +9,15 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
         private readonly EventoDbContext _eventoDbContext;
 
         public EventoDbContext Context { get { return _eventoDbContext; } }
-        public UnitOfWorkEvento(EventoDbContext eventoDbContext)
+
+        private readonly IEventoRepository _eventoRepository;
+        public IEventoRepository EventoRepository { get { return _eventoRepository; } }
+
+        public UnitOfWorkEvento(EventoDbContext eventoDbContext,
+                                IEventoRepository eventoRepository)
         {
             _eventoDbContext = eventoDbContext;
+            _eventoRepository = eventoRepository;
         }
 
         public void Save()

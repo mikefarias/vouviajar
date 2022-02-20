@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using VouViajar.Modulos.Eventos.Domain.Enums;
 
-namespace VouViajar.Modulos.Eventos.Application.Models
+namespace VouViajar.Modulos.Eventos.Application.Features.Commands.AtualizarEvento
 {
-    public class AtualizarEventoModel
+    public class AtualizarEventoCommand : IRequest
     {
+        public int ID { get; set; }
         public string Nome { get; set; }
 
         public string Resumo { get; set; }
@@ -24,6 +26,7 @@ namespace VouViajar.Modulos.Eventos.Application.Models
         public decimal ValorVaga { get; set; }
 
         public EnumTipoEvento Tipo { get; set; }
+
         public EnumSituacaoEvento Situacao { get; set; }
     }
 }
