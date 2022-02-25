@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Reflection;
 using VouViajar.Modulos.Eventos.Application.Behaviours;
 using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
-using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
 using VouViajar.Modulos.Eventos.Infrastructure.Repositories;
 

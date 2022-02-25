@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.AtualizarEvento;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
+using VouViajar.Modulos.Eventos.Application.Features.Commands.ExcluirEvento;
 using VouViajar.Modulos.Eventos.Application.Models;
 using VouViajar.Modulos.Eventos.Domain.Enums;
 
@@ -68,11 +69,9 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Created)]
-        [HttpPut("{id}")]
+        [HttpPut()]
         public async Task<ActionResult> AtualizarEvento([FromBody] AtualizarEventoModel atualizarEventoModel, int id)
         {
-            if (id < 1) return BadRequest();
-
             var atualizarEventoCommand = new AtualizarEventoCommand()
             {
                 ID = id,
@@ -100,9 +99,16 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpDelete]
-        public ActionResult ExcluirEvento()
+        public async Task<ActionResult> ExcluirEvento(int id)
         {
-            throw new NotImplementedException();
+            var excluirEventoCommand = new ExcluirEventoCommand()
+            {
+                ID = id
+            };
+
+            var retorno = await _mediator.Send(excluirEventoCommand);
+
+            return Ok();
         }
 
         [ProducesResponseType((int)HttpStatusCode.OK)]
