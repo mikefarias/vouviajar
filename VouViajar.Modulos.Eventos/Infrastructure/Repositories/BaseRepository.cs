@@ -23,9 +23,9 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Repositories
         {
         }
 
-        public IEnumerable<T> Obter(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T> Obter(Expression<Func<T, bool>> parametros)
         {
-            return dbSet.AsNoTracking().Where(predicate).ToList();
+            return dbSet.AsNoTracking().Where(parametros).ToList();
         }
 
         public T ObterPorId(int id)

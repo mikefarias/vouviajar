@@ -85,11 +85,6 @@ namespace VouViajar.ServiceBus.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapHangfireDashboard();
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Seac service bus running...");
-                //});
             });
         }
     }

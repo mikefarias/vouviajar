@@ -106,7 +106,7 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
                 ID = id
             };
 
-            var retorno = await _mediator.Send(excluirEventoCommand);
+            await _mediator.Send(excluirEventoCommand);
 
             return Ok();
         }
