@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.AtualizarEvento;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvento;
 using VouViajar.Modulos.Eventos.Application.Features.Commands.ExcluirEvento;
+using VouViajar.Modulos.Eventos.Application.Features.Queries.RecuperarEvento;
+using VouViajar.Modulos.Eventos.Application.Features.Queries.RecuperarEventos;
 using VouViajar.Modulos.Eventos.Application.Models;
 using VouViajar.Modulos.Eventos.Domain.Enums;
 
@@ -24,6 +26,10 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
+        //TODO : Tratamento de erros
+        //TODO : Configurar NLog
+        //TODO : Revisar uso de async nos gets
+        //TODO : Revisar indices criados pelos relacionamentos com localidade e situacao
         /// <summary>
         /// Realiza a contratação de um produto disponível.
         /// </summary>
@@ -116,9 +122,14 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpGet("{id}")]
-        public ActionResult ObterEvento()
+        public async Task<ActionResult<RecuperarEventoResult>> RecuperarEvento(int id)
         {
-            throw new NotImplementedException();
+            var eventoResult = await _mediator.Send(new RecuperarEventoQuery
+            { 
+                ID = id 
+            });
+
+            return Ok(eventoResult);
         }
 
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -126,9 +137,11 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpGet]
-        public ActionResult ObterEventos()
+        public async Task<ActionResult> RecuperarEventos()
         {
-            throw new NotImplementedException();
+            var eventosResult = await _mediator.Send(new RecuperarEventosQuery());
+
+            return Ok(eventosResult);
         }
     }
 }

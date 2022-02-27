@@ -9,3 +9,6 @@ insert Eventos.Situacao (descricao, ativo) VALUES ('EXCLUIDO', 0);
 
 insert Eventos.Tipo (descricao, ativo) VALUES ('BATE_VOLTA', 0); 
 insert Eventos.Tipo (descricao, ativo) VALUES ('EXCURSAO', 0); 
+
+
+select * from eventos.evento
