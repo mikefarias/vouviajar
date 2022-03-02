@@ -1,6 +1,6 @@
-﻿using MassTransit;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using VouViajar.Modulos.Usuarios.Application.Behaviours;
@@ -16,8 +16,8 @@ namespace VouViajar.Modulos.Usuarios
             #region MediatR
 
             var assembly = AppDomain.CurrentDomain.Load("VouViajar.Modulos.Usuarios");
-            services.AddValidatorsFromAssembly(assembly);
-            services.AddMediator(); // Utilizar o MeditatR
+            //services.AddValidatorsFromAssembly(assembly);
+            //services.AddMediator(assembly); // Utilizar o MeditatR
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             #endregion
 
