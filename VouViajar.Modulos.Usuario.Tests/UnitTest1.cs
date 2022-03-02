@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 
-namespace VouViajar.Modulos.Usuario.Tests
+namespace VouViajar.Modulos.Usuarios.Tests
 {
     public class UnitTest1
     {

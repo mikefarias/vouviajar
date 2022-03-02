@@ -1,15 +1,15 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Options;
-using Service.Services;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Vouviajar.API.Autenticacao.Entities;
-using Vouviajar.API.Autenticacao.Services.Config;
-using Vouviajar.API.Autenticacao.Services.Interface;
-using Vouviajar.API.Autenticacao.Services.Interfaces;
+using VouViajar.Modulos.Usuarios.Application.Messages;
+using VouViajar.Modulos.Usuarios.Domain.Entities.Agreggates;
+using VouViajar.Modulos.Usuarios.Domain.Services.Config;
+using VouViajar.Modulos.Usuarios.Domain.Services.Interface;
+using VouViajar.Modulos.Usuarios.Domain.Services.Interfaces;
 
-namespace Vouviajar.API.Autenticacao.Services
+namespace VouViajar.Modulos.Usuarios.Domain.Services
 {
     public class UsuarioAgenciaService : BaseService, IUsuarioAgenciaService
     {
@@ -19,10 +19,11 @@ namespace Vouviajar.API.Autenticacao.Services
         private readonly Uri URI_NOVA_AGENCIA;
 
         public UsuarioAgenciaService(IOptions<MessageBrokerConfig> messageBrokerConfig,
-                                        IBusControl bus, INotificador notificador) : base (notificador)
+                                        IBusControl bus, 
+                                        INotificador notificador) : base (notificador)
         {
             _messageBrokerConfig = messageBrokerConfig;
-             _bus = bus;
+            _bus = bus;
             _notificador = notificador;
             URI_NOVA_AGENCIA = new Uri($"{_messageBrokerConfig.Value.Endpoints.PrefixQueue}{_messageBrokerConfig.Value.Endpoints.NovaAgencia}");
         }

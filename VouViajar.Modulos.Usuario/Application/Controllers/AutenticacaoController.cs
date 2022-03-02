@@ -1,5 +1,4 @@
-﻿//using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -9,13 +8,13 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Vouviajar.API.Autenticacao.Entities;
-using Vouviajar.API.Autenticacao.Extensoes;
-using Vouviajar.API.Autenticacao.Services.Interface;
-using Vouviajar.API.Autenticacao.Services.Interfaces;
-using Vouviajar.API.Autenticacao.Services.ViewModel;
+using VouViajar.Modulos.Usuarios.Application.Extensions;
+using VouViajar.Modulos.Usuarios.Domain.Entities.Agreggates;
+using VouViajar.Modulos.Usuarios.Domain.Services.Interface;
+using VouViajar.Modulos.Usuarios.Domain.Services.Interfaces;
+using VouViajar.Modulos.Usuarios.Domain.Services.ViewModel;
 
-namespace Vouviajar.API.Autenticacao.Controllers
+namespace VouViajar.Modulos.Usuarios.Application.Controllers
 {
     [Route("api/autenticacao")]
     [ApiController]
