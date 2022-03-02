@@ -19,28 +19,28 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
 
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
 
-            builder.HasDefaultSchema("Eventos");
+            modelBuilder.HasDefaultSchema("Eventos");
 
-            builder.Entity<Evento>()
+            modelBuilder.Entity<Evento>()
                 .HasKey(ev => new {ev.EventoID});
 
-            builder.Entity<Evento>().HasOne(ev => ev.Origem).WithOne().OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Evento>().HasOne(ev => ev.Destino).WithOne().OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Evento>().HasOne(ev => ev.Tipo).WithOne().OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Evento>().HasOne(ev => ev.Situacao).WithOne().OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Evento>().Property("ValorVaga").HasColumnType("decimal").HasPrecision(5);
+            modelBuilder.Entity<Evento>().HasOne(ev => ev.Origem).WithOne().OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Evento>().HasOne(ev => ev.Destino).WithOne().OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Evento>().HasOne(ev => ev.Tipo).WithOne().OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Evento>().HasOne(ev => ev.Situacao).WithOne().OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Evento>().Property("ValorVaga").HasColumnType("decimal").HasPrecision(5);
 
-            builder.Entity<Localidade>()
+            modelBuilder.Entity<Localidade>()
                 .HasKey(ev => new { ev.LocalidadeID});
 
-            builder.Entity<Situacao>()
+            modelBuilder.Entity<Situacao>()
                 .HasKey(ev => new { ev.SituacaoID });
 
-            builder.Entity<Tipo>()
+            modelBuilder.Entity<Tipo>()
                 .HasKey(ev => new { ev.TipoID });
 
         }

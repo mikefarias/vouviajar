@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VouViajar.Modulos.Eventos\VouViajar.Modulos.Eventos.csproj" />
+    <ProjectReference Include="..\VouViajar.Modulos.Usuario\VouViajar.Modulos.Usuarios.csproj" />
   </ItemGroup>
 
 </Project>

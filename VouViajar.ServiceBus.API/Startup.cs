@@ -1,15 +1,12 @@
-using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using VouViajar.Modulos.Eventos;
-using VouViajar.Modulos.Eventos.Application.Behaviours;
+using VouViajar.Modulos.Usuarios;
 using VouViajar.ServiceBusAPI.Extensions;
 
 namespace VouViajar.ServiceBus.API
@@ -30,15 +27,7 @@ namespace VouViajar.ServiceBus.API
         {
             services.AddEventoModuleRegistrationService(Configuration);
 
-            #region MediatR
-            var assembly = AppDomain.CurrentDomain.Load("VouViajar.Modulos.Eventos");
-            services.AddValidatorsFromAssembly(assembly);
-            services.AddMediatR(assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            #endregion
-
-            services.AddControllers()
-                .AddApplicationPart(assembly);
+            services.AddUsuarioModuleRegistrationService(Configuration);
 
             services.AddHttpClient();
 
@@ -72,7 +61,7 @@ namespace VouViajar.ServiceBus.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "Vou Viajar - API Autenticação");
+                    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "Vou Viajar");
                     c.RoutePrefix = string.Empty;
                 }
                 );

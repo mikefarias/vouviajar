@@ -66,7 +66,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
                     NotificarErro(erro.Description);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 NotificarErro("Comportamento Inesperado");
             }
