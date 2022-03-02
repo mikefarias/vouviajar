@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VouViajar.Modulos.Eventos;
 using VouViajar.Modulos.Usuarios;
+using VouViajar.Modulos.Usuarios.Domain.Services.AutoMapper;
 using VouViajar.ServiceBusAPI.Extensions;
 
 namespace VouViajar.ServiceBus.API
@@ -30,6 +31,8 @@ namespace VouViajar.ServiceBus.API
             services.AddUsuarioModuleRegistrationService(Configuration);
 
             services.AddHttpClient();
+
+            services.AddAutoMapper(typeof(ConfigurationMapper));
 
             #region Swagger
             services.AddControllers()
