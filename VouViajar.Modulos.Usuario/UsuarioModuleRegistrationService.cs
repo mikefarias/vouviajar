@@ -33,9 +33,10 @@ namespace VouViajar.Modulos.Usuarios
             #endregion
 
             services.AddScoped<IUsuarioAgenciaService, UsuarioAgenciaService>();
-
+            services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                         .AddEntityFrameworkStores<UsuarioDbContext>();
+
             return services;
         }
     }

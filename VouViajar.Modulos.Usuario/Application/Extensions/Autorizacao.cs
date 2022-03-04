@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace VouViajar.Modulos.Usuarios.Application.Extensions
 
 {
-    public class Autorizacao
+    public static class Autorizacao
     {
         public static bool ValidarClaimUsuario(HttpContext context, string nomeClaim, string valorClaim) 
         {
@@ -44,7 +44,6 @@ namespace VouViajar.Modulos.Usuarios.Application.Extensions
             if (!Autorizacao.ValidarClaimUsuario(context.HttpContext, _claim.Type, _claim.Value))
             {
                 context.Result = new StatusCodeResult(403);
-                return;
             }
         }
     }

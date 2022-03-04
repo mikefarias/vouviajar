@@ -43,7 +43,7 @@ namespace VouViajar.ServiceBus.API
                     options.SuppressModelStateInvalidFilter = true;
                 });
             services.AddSwaggerGen(c =>
-                c.SwaggerDoc(name: "v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Vou Viajar - API Autenticação", Version = "v1" })
+                c.SwaggerDoc(name: "v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Vou Viajar", Version = "v1" })
             );
             services.Configure<ApiBehaviorOptions>(options =>
             {

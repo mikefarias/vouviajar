@@ -1,17 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using VouViajar.Modulos.Usuarios.Application.Extensions;
-using VouViajar.Modulos.Usuarios.Domain.Entities.Agreggates;
+using VouViajar.Modulos.Usuarios.Application.Features.Commands.LogarUsuario;
+using VouViajar.Modulos.Usuarios.Application.Features.Commands.RegistrarUsuario;
 using VouViajar.Modulos.Usuarios.Domain.Services.Interface;
-using VouViajar.Modulos.Usuarios.Domain.Services.Interfaces;
 using VouViajar.Modulos.Usuarios.Domain.Services.ViewModel;
 
 namespace VouViajar.Modulos.Usuarios.Application.Controllers
@@ -20,22 +12,14 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
     [ApiController]
     public class AutenticacaoController : CustomBaseController
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly AppSettings _appSettings;
-        private readonly IUsuarioAgenciaService _usuarioAgenciaService;
+
+        private readonly IMediator _mediator;
 
         public AutenticacaoController(INotificador notificador,
-                                        SignInManager<IdentityUser> signInManager,
-                                        UserManager<IdentityUser> userManager,
-                                        IOptions<AppSettings> appSettings, 
-                                        IUsuarioAgenciaService usuarioAgenciaService
-                                        ) : base(notificador) 
+                                        IMediator mediator
+                                        ) : base(notificador)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
-            _appSettings = appSettings.Value;
-            _usuarioAgenciaService = usuarioAgenciaService;
+            _mediator = mediator;
         }
 
         [HttpPost("registrar")]
@@ -43,103 +27,32 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
         {
             if (!ModelState.IsValid) return Retorno(ModelState);
 
-            var user = new Usuario
+            await _mediator.Send(new RegistrarUsuarioCommand
             {
                 UserName = registrarUsuario.Email,
                 Email = registrarUsuario.Email,
-                EmailConfirmed = true
-            };
-
-            var resultUser = await _userManager.CreateAsync(user, registrarUsuario.Password);
-
-            try
-            {
-                if (resultUser.Succeeded)
-                {
-                   // Publicar usuário na fila para cadastro AGENCIA ou CLIENTE
-                   await _usuarioAgenciaService.RegistrarAgencia(user);
-                   await _signInManager.SignInAsync(user, false);
-                   return Retorno(await GerarToken(registrarUsuario.Email));
-                }
-
-                foreach (var erro in resultUser.Errors)
-                    NotificarErro(erro.Description);
-
-            }
-            catch (Exception)
-            {
-                NotificarErro("Comportamento Inesperado");
-            }
-
+                EmailConfirmed = true,
+                Password = registrarUsuario.Password,
+                ConfirmPassword = registrarUsuario.ConfirmPassword
+            });
 
             return Retorno();
         }
 
         [HttpPost("logar")]
-        public async Task<ActionResult> Login(LoginUsuarioViewModel loginUsuario) 
+        public async Task<ActionResult> Login(LoginUsuarioViewModel loginUsuario)
         {
             if (!ModelState.IsValid) return Retorno(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(loginUsuario.Email, loginUsuario.Password, false, true);
-
-            if (result.Succeeded) return Retorno(await GerarToken(loginUsuario.Email));
-            if (result.IsLockedOut)
+            await _mediator.Send(new LogarUsuarioCommand
             {
-                NotificarErro("Usuário bloqueado por execeder número máximo de tentativas de login");
-                return Retorno(loginUsuario);
-            }
+                Email = loginUsuario.Email, 
+                Password = loginUsuario.Password, 
+                IsPersistent = true, 
+                LockoutOnFailure = false
+            });
 
-            NotificarErro("Usuário ou senha incorretos.");
-            return Retorno(loginUsuario);
+            return Retorno();
         }
-
-        private async Task<LoginResponseViewModel> GerarToken(string email)
-        {
-            var user = await _userManager.FindByEmailAsync(email);
-            var claims = await _userManager.GetClaimsAsync(user);
-            var userRoles = await _userManager.GetRolesAsync(user);
-
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.Integer64));
-
-            foreach (var userRole in userRoles)
-                claims.Add(new Claim("role", userRole));
-
-            var identityClaims = new ClaimsIdentity();
-            identityClaims.AddClaims(claims);
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var token = tokenHandler.CreateToken(new SecurityTokenDescriptor
-            {
-                Issuer = _appSettings.Emissor,
-                Audience = _appSettings.ValidoEm,
-                Subject = identityClaims,
-                Expires = DateTime.UtcNow.AddHours(_appSettings.ExpiracaoHoras),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            }) ;
-
-            var encodedToken = tokenHandler.WriteToken(token);
-
-            var response = new LoginResponseViewModel
-            {
-                AccessToken = encodedToken,
-                ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
-                UserToken = new UserTokenViewModel
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Claims = claims.Select(c => new ClaimViewModel { Type = c.Type, Value = c.Value })
-                }
-            };
-
-            return response;
-        }
-
-        private static long ToUnixEpochDate(DateTime date)
-             => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
     }
 }

@@ -3,7 +3,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure;
-using VouViajar.Modulos.Eventos.Domain.Entities.Aggregates;
 
 namespace VouViajar.Modulos.Eventos.Application.Features.Commands.AtualizarEvento
 {

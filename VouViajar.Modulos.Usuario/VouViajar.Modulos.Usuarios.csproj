@@ -9,8 +9,6 @@
     <Folder Include="Application\Contracts\Services\" />
     <Folder Include="Application\EventBus\Consumers\" />
     <Folder Include="Application\EventBus\Events\" />
-    <Folder Include="Application\Features\Commands\LogarUsuario\" />
-    <Folder Include="Application\Features\Commands\RegistrarUsuario\" />
     <Folder Include="Application\Features\Queries\" />
     <Folder Include="Application\Filters\" />
     <Folder Include="Domain\Common\" />
