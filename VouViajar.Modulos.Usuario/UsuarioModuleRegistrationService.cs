@@ -27,13 +27,14 @@ namespace VouViajar.Modulos.Usuarios
             #endregion
 
             #region Injections
+            services.AddIdentityConfiguration(configuration);
             services.AddDbContext<UsuarioDbContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=vouviajar;Integrated Security=True"));
 
             services.AddScoped<INotificador, Notificador>();
             #endregion
 
             services.AddScoped<IUsuarioAgenciaService, UsuarioAgenciaService>();
-            services.AddScoped<IUsuarioService, UsuarioService>();
+            //services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                         .AddEntityFrameworkStores<UsuarioDbContext>();
 
