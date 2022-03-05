@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,9 +33,7 @@ namespace VouViajar.Modulos.Usuarios
             #endregion
 
             services.AddScoped<IUsuarioAgenciaService, UsuarioAgenciaService>();
-            //services.AddScoped<IUsuarioService, UsuarioService>();
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                        .AddEntityFrameworkStores<UsuarioDbContext>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             return services;
         }
