@@ -70,9 +70,12 @@ namespace VouViajar.ServiceBus.API
                 );
             }
 
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

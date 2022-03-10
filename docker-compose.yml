@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  vouviajar.servicebus.api:
+    image: ${DOCKER_REGISTRY-}vouviajarservicebusapi
+    build:
+      context: .
+      dockerfile: VouViajar.ServiceBus.API/Dockerfile

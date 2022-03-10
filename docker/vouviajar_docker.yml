@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
 
@@ -20,11 +20,11 @@ services:
             # ACCEPT_EULA: "Y"     
 
     api-autenticacao:
-        image: vouviajar/api-autenticacao:latest
+        image: Modulos/api-autenticacao:latest
         container_name: vouviajar-api-identidade    
         build: 
-            context: ../src/Vouviajar.API.Autenticacao
-            dockerfile: ./Dockerfile  
+            context: ../Modulos/VouViajar.ServiceBus.API
+            dockerfile: Dockerfile  
         restart: 
             always
         ports: 
@@ -36,15 +36,15 @@ services:
 #            - rabbitmq
 #            - sql-server
             
-    vouviajar-server:
-        image: vouviajar/vouviajar-server:latest
-        container_name: vouviajar-server    
-        build: 
-            context: ./
-            dockerfile: ./nginx/Dockerfile 
-        restart: always 
-        ports:
-            - "80:80"
-            - "443:443"
-        depends_on:
-            - api-autenticacao
+    #vouviajar-server:
+    #    image: vouviajar/vouviajar-server:latest
+    #    container_name: vouviajar-server    
+    #    build: 
+    #        context: ./
+    #        dockerfile: ./nginx/Dockerfile 
+    #    restart: always 
+    #    ports:
+    #        - "80:80"
+    #        - "443:443"
+    #    depends_on:
+    #        - api-autenticacao

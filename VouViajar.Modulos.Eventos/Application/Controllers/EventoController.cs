@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -15,6 +16,7 @@ using VouViajar.Modulos.Eventos.Domain.Enums;
 namespace VouViajar.Modulos.Eventos.Application.Controllers
 {
 
+    [Authorize]
     [Route("api/evento")]
     [ApiController]
     public class EventoController : ControllerBase

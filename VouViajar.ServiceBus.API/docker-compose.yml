@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    api-autenticacao:
+        image: api-autenticacao:latest
+        container_name: vouviajar-api-identidade    
+        build: 
+            context: ./
+            dockerfile: Dockerfile  
+        restart: 
+            always
+        ports: 
+           - "5100:5100"
+        environment: 
+            - aspnetcore_environment=production
+            - aspnetcore_urls=http://*:5100
