@@ -27,7 +27,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
         {
             if (!ModelState.IsValid) return Retorno(ModelState);
 
-            await _mediator.Send(new RegistrarUsuarioCommand
+            var retorno = await _mediator.Send(new RegistrarUsuarioCommand
             {
                 UserName = registrarUsuario.Email,
                 Email = registrarUsuario.Email,
@@ -36,7 +36,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
                 ConfirmPassword = registrarUsuario.ConfirmPassword
             });
 
-            return Retorno();
+            return Retorno(retorno);
         }
 
         [HttpPost("logar")]
@@ -44,7 +44,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
         {
             if (!ModelState.IsValid) return Retorno(ModelState);
 
-            await _mediator.Send(new LogarUsuarioCommand
+            var retorno = await _mediator.Send(new LogarUsuarioCommand
             {
                 Email = loginUsuario.Email, 
                 Password = loginUsuario.Password, 
@@ -52,7 +52,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
                 LockoutOnFailure = false
             });
 
-            return Retorno();
+            return Retorno(retorno);
         }
     }
 }

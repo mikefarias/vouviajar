@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using VouViajar.Modulos.Usuarios.Domain.Services.ViewModel;
 
 namespace VouViajar.Modulos.Usuarios.Application.Features.Commands.RegistrarUsuario
 {
-    public class RegistrarUsuarioCommand : IRequest
+    public class RegistrarUsuarioCommand : IRequest<LoginResponseViewModel>
     {
         public string UserName { get; set; }
         public string Email { get; set; }
