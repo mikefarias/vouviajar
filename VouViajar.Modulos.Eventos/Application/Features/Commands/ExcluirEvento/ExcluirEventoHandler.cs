@@ -10,7 +10,7 @@ namespace VouViajar.Modulos.Eventos.Application.Features.Commands.ExcluirrEvento
     public class ExcluirEventoHandler : IRequestHandler<ExcluirEventoCommand>
     {
         public readonly IUnitOfWorkEvento _unitOfWorkEvento;
-        
+
         public ExcluirEventoHandler(IUnitOfWorkEvento unitOfWorkEvento)
         {
             _unitOfWorkEvento = unitOfWorkEvento ?? throw new ArgumentNullException(nameof(unitOfWorkEvento));
@@ -24,7 +24,7 @@ namespace VouViajar.Modulos.Eventos.Application.Features.Commands.ExcluirrEvento
 
             _unitOfWorkEvento.EventoRepository.Excluir(evento);
             _unitOfWorkEvento.Save();
-            
+
             return Task.FromResult(Unit.Value);
         }
     }

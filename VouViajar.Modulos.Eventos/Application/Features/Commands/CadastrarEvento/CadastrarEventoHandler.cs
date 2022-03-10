@@ -10,7 +10,7 @@ namespace VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvent
     public class CadastrarEventoHandler : IRequestHandler<CadastrarEventoCommand>
     {
         public readonly IUnitOfWorkEvento _unitOfWorkEvento;
-        
+
         public CadastrarEventoHandler(IUnitOfWorkEvento unitOfWorkEvento)
         {
             _unitOfWorkEvento = unitOfWorkEvento ?? throw new ArgumentNullException(nameof(unitOfWorkEvento));
@@ -28,15 +28,15 @@ namespace VouViajar.Modulos.Eventos.Application.Features.Commands.CadastrarEvent
                 Arquivo = request.Arquivo,
                 NomeArquivo = request.NomeArquivo,
                 CadastradoEm = DateTime.Now,
-                OrigemID = request.Origem, 
+                OrigemID = request.Origem,
                 DestinoID = request.Destino,
-                TipoID  = request.Tipo.GetHashCode(), 
+                TipoID = request.Tipo.GetHashCode(),
                 SituacaoID = request.Situacao.GetHashCode()
             };
 
             _unitOfWorkEvento.Context.Evento.Add(evento);
             _unitOfWorkEvento.Save();
-            
+
             return Task.FromResult(Unit.Value);
         }
     }

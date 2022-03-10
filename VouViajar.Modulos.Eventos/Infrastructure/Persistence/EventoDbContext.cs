@@ -26,7 +26,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
             modelBuilder.HasDefaultSchema("Eventos");
 
             modelBuilder.Entity<Evento>()
-                .HasKey(ev => new {ev.EventoID});
+                .HasKey(ev => new { ev.EventoID });
 
             modelBuilder.Entity<Evento>().HasOne(ev => ev.Origem).WithOne().OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<Evento>().HasOne(ev => ev.Destino).WithOne().OnDelete(DeleteBehavior.NoAction);
@@ -35,7 +35,7 @@ namespace VouViajar.Modulos.Eventos.Infrastructure.Persistence
             modelBuilder.Entity<Evento>().Property("ValorVaga").HasColumnType("decimal").HasPrecision(5);
 
             modelBuilder.Entity<Localidade>()
-                .HasKey(ev => new { ev.LocalidadeID});
+                .HasKey(ev => new { ev.LocalidadeID });
 
             modelBuilder.Entity<Situacao>()
                 .HasKey(ev => new { ev.SituacaoID });

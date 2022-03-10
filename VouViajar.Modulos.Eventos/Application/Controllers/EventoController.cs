@@ -52,18 +52,18 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         {
             var cadastrarEventoCommand = new CadastrarEventoCommand()
             {
-                Nome        = cadastrarEventoModel.Nome,
-                Resumo      = cadastrarEventoModel.Resumo, 
-                DataInicio  = cadastrarEventoModel.DataInicio, 
-                DataFim     = cadastrarEventoModel.DataFim, 
-                Origem      = cadastrarEventoModel.Origem, 
-                Destino     = cadastrarEventoModel.Destino, 
-                NomeArquivo = cadastrarEventoModel.NomeArquivo, 
-                Arquivo     = cadastrarEventoModel.Arquivo, 
-                TotalVagas  = cadastrarEventoModel.TotalVagas, 
-                ValorVaga   = cadastrarEventoModel.ValorVaga, 
-                Tipo        = cadastrarEventoModel.Tipo, 
-                Situacao    = EnumSituacaoEvento.CADASTRADO
+                Nome = cadastrarEventoModel.Nome,
+                Resumo = cadastrarEventoModel.Resumo,
+                DataInicio = cadastrarEventoModel.DataInicio,
+                DataFim = cadastrarEventoModel.DataFim,
+                Origem = cadastrarEventoModel.Origem,
+                Destino = cadastrarEventoModel.Destino,
+                NomeArquivo = cadastrarEventoModel.NomeArquivo,
+                Arquivo = cadastrarEventoModel.Arquivo,
+                TotalVagas = cadastrarEventoModel.TotalVagas,
+                ValorVaga = cadastrarEventoModel.ValorVaga,
+                Tipo = cadastrarEventoModel.Tipo,
+                Situacao = EnumSituacaoEvento.CADASTRADO
 
             };
 
@@ -125,8 +125,8 @@ namespace VouViajar.Modulos.Eventos.Application.Controllers
         public async Task<ActionResult<RecuperarEventoResult>> RecuperarEvento(int id)
         {
             var eventoResult = await _mediator.Send(new RecuperarEventoQuery
-            { 
-                ID = id 
+            {
+                ID = id
             });
 
             return Ok(eventoResult);

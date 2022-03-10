@@ -11,27 +11,27 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
     {
         private readonly INotificador _notificador;
 
-        protected CustomBaseController(INotificador notificador) 
+        protected CustomBaseController(INotificador notificador)
         {
             _notificador = notificador;
         }
 
         protected ActionResult Retorno(object result = null)
         {
-            if (OperacaoValida()) 
+            if (OperacaoValida())
             {
-                return Ok( new
-                    {
+                return Ok(new
+                {
                     sucess = true,
                     data = result
-                    });
+                });
             }
 
-            return BadRequest( new
+            return BadRequest(new
             {
-                sucess = false, 
+                sucess = false,
                 errors = _notificador.ObterNotificacoes().Select(n => n.Mensagem)
-            }) ;
+            });
 
         }
 

@@ -1,5 +1,4 @@
 ﻿using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
-using VouViajar.Modulos.Eventos.Infrastructure.Repositories;
 
 namespace VouViajar.Modulos.Eventos.Application.Contracts.Infrastructure
 {

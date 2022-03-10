@@ -1,5 +1,4 @@
-﻿using MediatR;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using VouViajar.Modulos.Usuarios.Domain.Entities.Agreggates;
 using VouViajar.Modulos.Usuarios.Domain.Services.ViewModel;
 

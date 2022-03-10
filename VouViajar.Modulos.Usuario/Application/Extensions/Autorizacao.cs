@@ -9,7 +9,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Extensions
 {
     public static class Autorizacao
     {
-        public static bool ValidarClaimUsuario(HttpContext context, string nomeClaim, string valorClaim) 
+        public static bool ValidarClaimUsuario(HttpContext context, string nomeClaim, string valorClaim)
         {
             return context.User.Identity.IsAuthenticated &&
                 context.User.Claims.Any(c => c.Type == nomeClaim && c.Value.Contains(valorClaim));
@@ -18,7 +18,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Extensions
 
     public class ClaimsAutorizeAttribute : TypeFilterAttribute
     {
-        public ClaimsAutorizeAttribute(string nomeClaim, string valorClaim) : base (typeof(RequisitoClaimFilter))
+        public ClaimsAutorizeAttribute(string nomeClaim, string valorClaim) : base(typeof(RequisitoClaimFilter))
         {
             Arguments = new object[] { new Claim(nomeClaim, valorClaim) };
         }

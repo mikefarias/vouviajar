@@ -46,9 +46,9 @@ namespace VouViajar.Modulos.Usuarios.Application.Controllers
 
             var retorno = await _mediator.Send(new LogarUsuarioCommand
             {
-                Email = loginUsuario.Email, 
-                Password = loginUsuario.Password, 
-                IsPersistent = true, 
+                Email = loginUsuario.Email,
+                Password = loginUsuario.Password,
+                IsPersistent = true,
                 LockoutOnFailure = false
             });
 

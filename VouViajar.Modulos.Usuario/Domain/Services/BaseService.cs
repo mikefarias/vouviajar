@@ -15,14 +15,15 @@ namespace VouViajar.Modulos.Usuarios.Domain.Services
     {
         private readonly INotificador _notificador;
 
-        protected BaseService(INotificador notificador) 
+        protected BaseService(INotificador notificador)
         {
             _notificador = notificador;
         }
 
-        protected void Notificar(ValidationResult validationResult) 
+        protected void Notificar(ValidationResult validationResult)
         {
-            foreach (var erro in validationResult.Errors) {
+            foreach (var erro in validationResult.Errors)
+            {
                 Notificar(erro.ErrorMessage);
             }
         }
@@ -80,7 +81,7 @@ namespace VouViajar.Modulos.Usuarios.Domain.Services
             return imagemBase64;
         }
 
-        protected bool ExcluirImagemDiretorio(string nomeImagem) 
+        protected bool ExcluirImagemDiretorio(string nomeImagem)
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/pets", nomeImagem);
             System.IO.File.Delete(filePath);

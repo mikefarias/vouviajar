@@ -8,7 +8,7 @@ namespace VouViajar.Modulos.Usuarios.Domain.Services
     public class UsuarioAgenciaService : BaseService, IUsuarioAgenciaService
     {
         private readonly INotificador _notificador;
-        public UsuarioAgenciaService(INotificador notificador) : base (notificador)
+        public UsuarioAgenciaService(INotificador notificador) : base(notificador)
         {
             _notificador = notificador;
         }

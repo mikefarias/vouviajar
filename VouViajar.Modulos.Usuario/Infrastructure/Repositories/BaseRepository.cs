@@ -18,7 +18,7 @@ namespace VouViajar.Modulos.Usuarios.Infrastructure.Repositories
             dbSet = context.Set<T>();
         }
 
-        public BaseRepository() 
+        public BaseRepository()
         {
         }
 

@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -21,8 +20,8 @@ namespace VouViajar.Modulos.Usuarios.Domain.Services
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
 
-        public UsuarioService(  SignInManager<IdentityUser> signInManager,
-                                UserManager<IdentityUser> userManager, 
+        public UsuarioService(SignInManager<IdentityUser> signInManager,
+                                UserManager<IdentityUser> userManager,
                                 IOptions<AppSettings> appSettings)
         {
             _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));

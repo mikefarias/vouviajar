@@ -26,7 +26,7 @@ namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
             TipoID = tipoID;
         }
 
-        public int EventoID {get; set;}
+        public int EventoID { get; set; }
         public int AgenciaID { get; set; }
         public string Nome { get; set; }
         public string Resumo { get; set; }
@@ -38,9 +38,9 @@ namespace VouViajar.Modulos.Eventos.Domain.Entities.Aggregates
         public string Arquivo { get; set; }
         public DateTime CadastradoEm { get; set; }
         public int OrigemID { get; set; }
-        public virtual Localidade Origem{ get; set; }
+        public virtual Localidade Origem { get; set; }
         public int DestinoID { get; set; }
-        public virtual Localidade Destino{ get; set; }
+        public virtual Localidade Destino { get; set; }
         public int SituacaoID { get; set; }
         public virtual Situacao Situacao { get; set; }
         public int TipoID { get; set; }

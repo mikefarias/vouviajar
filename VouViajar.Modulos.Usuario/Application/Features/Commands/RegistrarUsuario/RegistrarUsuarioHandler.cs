@@ -21,15 +21,15 @@ namespace VouViajar.Modulos.Usuarios.Application.Features.Commands.RegistrarUsua
         public async Task<LoginResponseViewModel> Handle(RegistrarUsuarioCommand request, CancellationToken cancellationToken)
         {
             var usuario = new Usuario
-            { 
-                UserName = request.UserName, 
-                Email = request.Email, 
+            {
+                UserName = request.UserName,
+                Email = request.Email,
                 EmailConfirmed = request.EmailConfirmed
             };
 
             var loginResponse = await _usuarioService.RegistrarUsuarioAsync(usuario, request.Password);
-            
-            return await Task.FromResult<LoginResponseViewModel>(loginResponse); 
+
+            return await Task.FromResult<LoginResponseViewModel>(loginResponse);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace VouViajar.Modulos.Usuarios.Domain.Services.AutoMapper
 {
-    public class ConfigurationMapper: Profile
+    public class ConfigurationMapper : Profile
     {
         public ConfigurationMapper()
         {

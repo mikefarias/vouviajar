@@ -11,5 +11,5 @@ namespace VouViajar.Modulos.Usuarios.Application.Features.Commands.LogarUsuario
         public bool LockoutOnFailure { get; set; }
 
 
-}
+    }
 }

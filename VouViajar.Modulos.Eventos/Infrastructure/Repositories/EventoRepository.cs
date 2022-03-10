@@ -4,10 +4,10 @@ using VouViajar.Modulos.Eventos.Infrastructure.Persistence;
 
 namespace VouViajar.Modulos.Eventos.Infrastructure.Repositories
 {
-    public class EventoRepository: BaseRepository<Evento>, IEventoRepository
+    public class EventoRepository : BaseRepository<Evento>, IEventoRepository
     {
-        public EventoRepository(EventoDbContext context) : base(context) 
-        { 
+        public EventoRepository(EventoDbContext context) : base(context)
+        {
         }
     }
 }

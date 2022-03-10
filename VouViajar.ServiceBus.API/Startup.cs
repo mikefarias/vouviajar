@@ -55,7 +55,7 @@ namespace VouViajar.ServiceBus.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-         
+
             app.UseForwardedHeaders();
 
             if (env.IsDevelopment())

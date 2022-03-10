@@ -5,7 +5,7 @@ namespace VouViajar.Modulos.Usuarios.Application.Features.Commands.RegistrarUsua
     public class RegistrarUsuarioValidator : AbstractValidator<RegistrarUsuarioCommand>
     {
         public RegistrarUsuarioValidator()
-        { 
+        {
         }
     }
 }
